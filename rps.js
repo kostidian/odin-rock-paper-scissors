@@ -16,7 +16,6 @@ function playerTurn() {
 //Computer choice function here
 function computerTurn() {
     let compChoice = Math.floor(Math.random() * 3);
-    console.log(compChoice)
     if (compChoice == 0) {
         return "ROCK"
     } if (compChoice == 1) {
@@ -26,10 +25,14 @@ function computerTurn() {
     }
 }
 
+//Plays a single round returning player and computer choice
+function playRound() {
+    let playerDecision = playerTurn()
+    let compDecision = computerTurn()
+    console.log("Your choice was " + playerDecision)
+    console.log("Computer's choice was " + compDecision)
+}
 
-let playerDecision = playerTurn()
-let compDecision = computerTurn()
 
-console.log(playerDecision)
-console.log(compDecision)
+
 
