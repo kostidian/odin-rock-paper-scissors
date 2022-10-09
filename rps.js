@@ -1,10 +1,19 @@
-
+// Player choice function here
 function playerTurn() {
-    let playerChoice = prompt("Rock, Paper or Scissors?");
-   return playerChoice
+    let playerChoice = prompt("ROCK, PAPER or SCISSORS?").toUpperCase();
+    if (playerChoice == "ROCK") {
+        return "ROCK";
+    } else if (playerChoice == "PAPER") {
+        return "PAPER";
+    } else if (playerChoice == "SCISSORS") {
+        return "SCISSORS";
+    } else {
+        console.log("Not a valid choice - try again")
+        playerTurn()
+    }
 }
 
-//Computer choice here
+//Computer choice function here
 function computerTurn() {
     let compChoice = Math.floor(Math.random() * 3);
     console.log(compChoice)
