@@ -34,22 +34,31 @@ function playRound() {
     declareWinner(playerDecision, compDecision)
 }
 
+let playerScore = 0
+let compScore = 0
 
 function declareWinner(playerDecision, compDecision) {
+    
     if (playerDecision == compDecision) {
         console.log("It's a draw")
     } else if (playerDecision == "ROCK" && compDecision == "PAPER") {
         console.log("Computer Wins - Paper Beats Rock")
+        compScore += 1
     } else if (playerDecision == "ROCK" && compDecision == "SCISSORS") {
         console.log("You Win! - Rock Beats Scissors")
+        playerScore += 1
     } else if (playerDecision == "PAPER" && compDecision == "SCISSORS") {
         console.log("Computer Wins - Scissors Beats Paper")
+        compScore += 1
     } else if (playerDecision == "PAPER" && compDecision == "ROCK") {
         console.log("You Win! - Paper Beats Rock")
+        playerScore += 1
     } else if (playerDecision == "SCISSORS" && compDecision == "PAPER") {
         console.log("You Win! - Scissors Beats Paper")
+        playerScore += 1
     } else {
         console.log("Computer Wins - Rock Beats Scissors")
+        compScore += 1
     }
 }
 
