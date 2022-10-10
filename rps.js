@@ -11,8 +11,7 @@ function playerTurn() {
     } else if (playerChoice == "SCISSORS") {
         return "SCISSORS";
     } else {
-        console.log("Not a valid choice - try again")
-        playerTurn()
+        return
     }
 }
 
@@ -56,12 +55,15 @@ function declareWinner(playerDecision, compDecision) {
     } else if (playerDecision == "SCISSORS" && compDecision == "PAPER") {
         console.log("You Win! - Scissors Beats Paper")
         playerScore += 1
-    } else {
+    } else if (playerDecision == "SCISSORS" && compDecision == "ROCK") {
         console.log("Computer Wins - Rock Beats Scissors")
+        compScore += 1
+    }  else {
+        console.log("Computer Wins - you failed to enter a valid choice")
         compScore += 1
     }
 }
-
+    
 // Function for a 5 round game (for loop) with scoring
 function game() {
     playerScore = 0
@@ -78,7 +80,7 @@ function printScore() {
     console.log("The score is: Player " + playerScore + " Computer " + compScore)
 }
 
-// This function declares the winner
+// This function declares the winner of the 5 round match
 function printFinalScore() {
     console.log("The 5 rounds are over")
     if (playerScore > compScore) {
@@ -89,3 +91,5 @@ function printFinalScore() {
         console.log("It's a draw, no winner. Try again!")
     }
 }
+
+game()
