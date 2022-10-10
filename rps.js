@@ -1,3 +1,6 @@
+let playerScore = 0
+let compScore = 0
+
 // Player choice function here
 function playerTurn() {
     let playerChoice = prompt("ROCK, PAPER or SCISSORS?").toUpperCase();
@@ -34,11 +37,8 @@ function playRound() {
     declareWinner(playerDecision, compDecision)
 }
 
-let playerScore = 0
-let compScore = 0
-
+// Function with the logic for determining a winner using all possible combinations
 function declareWinner(playerDecision, compDecision) {
-    
     if (playerDecision == compDecision) {
         console.log("It's a draw")
     } else if (playerDecision == "ROCK" && compDecision == "PAPER") {
@@ -62,3 +62,30 @@ function declareWinner(playerDecision, compDecision) {
     }
 }
 
+// Function for a 5 round game (for loop) with scoring
+function game() {
+    playerScore = 0
+    compScore = 0
+    for (let i = 0; i < 5; i++) {
+        playRound()
+        printScore()
+    }
+    printFinalScore()
+}
+
+// This function simply prints the score to the console
+function printScore() {
+    console.log("The score is: Player " + playerScore + " Computer " + compScore)
+}
+
+// This function declares the winner
+function printFinalScore() {
+    console.log("The 5 rounds are over")
+    if (playerScore > compScore) {
+        console.log("Player wins the match! Congratulations!")
+    } else if (compScore > playerScore) {
+        console.log("Computer wins the match! Better luck next time")
+    } else {
+        console.log("It's a draw, no winner. Try again!")
+    }
+}
